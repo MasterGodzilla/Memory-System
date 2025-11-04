@@ -16,6 +16,7 @@ Claude Code will fetch the integration guide and handle everything automatically
 - Create the memory/ directory structure
 - Adapt templates with your project's terminology
 - Set up the complete three-tier system
+- Optionally discover and migrate scattered .md files into the memory structure
 
 ## Overview
 
@@ -76,7 +77,7 @@ Integration plan for Claude Code agents to execute. This is what Claude Code fol
 
 ## How It Works
 
-The templates use placeholders like `[Project]`, `[component]`, and `[module]`. Claude Code automatically detects your project's terminology from your existing `CLAUDE.md` and replaces these placeholders during integration.
+Claude Code reads your existing `CLAUDE.md` to understand your project's structure and terminology, then automatically adapts the memory system templates to match your project's conventions and organization.
 
 ## Origin
 
