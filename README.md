@@ -39,6 +39,17 @@ This repository provides templates for implementing a memory system that helps C
 - Evolves frequently during active development
 - Can be verbose and detailed
 
+```
+memory/
+├── design/           # Architectural decisions
+├── plans/            # Active implementation plans
+├── testing/          # Test documentation and rationale
+├── debugging/        # Bug investigations
+└── archive/
+    ├── completed/    # Finished plans
+    └── deprecated/   # Outdated designs
+```
+
 **Tier 3: Module READMEs (Module-Specific Docs)**
 - Architecture and API of a single module
 - Usage examples and setup instructions
