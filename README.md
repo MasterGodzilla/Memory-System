@@ -92,7 +92,7 @@ Claude Code reads your existing `CLAUDE.md` to understand your project's structu
 
 ## Origin
 
-This system was extracted from a production ML research project where it successfully managed complex agent interactions across months of development, including:
+This system was extracted from a ML research project where it successfully managed complex agent interactions across months of development, including:
 - Multi-module refactorings
 - Performance optimization campaigns
 - Design decision tracking
