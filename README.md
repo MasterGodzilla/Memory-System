@@ -9,7 +9,7 @@ This repository provides templates for implementing a memory system that helps C
 - Core project concepts and conventions
 - Design decisions and their rationale
 - Active implementation plans
-- Performance characteristics and benchmarks
+- Bug investigations and debugging workflows
 
 ## The Three-Tier System
 
@@ -19,7 +19,7 @@ This repository provides templates for implementing a memory system that helps C
 - Must remain concise; updated rarely
 
 **Tier 2: memory/ (Agent Working Memory)**
-- Detailed design docs, implementation plans, benchmarks
+- Detailed design docs, implementation plans, and debugging investigations
 - Evolves frequently during active development
 - Can be verbose and detailed
 
@@ -33,7 +33,7 @@ This repository provides templates for implementing a memory system that helps C
 ### [CLAUDE_MEMORY_TEMPLATE.md](CLAUDE_MEMORY_TEMPLATE.md)
 Template for the memory management section to add to your project's `CLAUDE.md` file. This establishes the three-tier system, explains what content belongs where, and defines update protocols.
 
-### [MEMORY_README_TEMPLATE.md](MEMORY_README_TEMPLATE.md)
+### [memory-readme.md](memory-readme.md)
 Template for creating `memory/README.md` in your project. This provides:
 - Directory structure documentation
 - Agent behavior protocols for different situations
@@ -41,15 +41,22 @@ Template for creating `memory/README.md` in your project. This provides:
 - Maintenance and archiving guidelines
 
 ### [MEMORY_SYSTEM_INTEGRATION.md](MEMORY_SYSTEM_INTEGRATION.md)
-Step-by-step guide for integrating the memory system into your project. Read this first if you're adopting the system.
+Integration plan for Claude Code agents to execute. This is what Claude Code follows when you ask it to set up the memory system.
 
-## Quick Start
+## 🚀 Quick Start (2 minutes)
 
-1. Read [MEMORY_SYSTEM_INTEGRATION.md](MEMORY_SYSTEM_INTEGRATION.md) for integration instructions
-2. Adapt [CLAUDE_MEMORY_TEMPLATE.md](CLAUDE_MEMORY_TEMPLATE.md) to your project and add to your `CLAUDE.md`
-3. Create a `memory/` directory in your project root
-4. Adapt [MEMORY_README_TEMPLATE.md](MEMORY_README_TEMPLATE.md) and save as `memory/README.md`
-5. Create subdirectories: `memory/design/`, `memory/plans/`, `memory/benchmarks/`, `memory/testing/`, `memory/archive/`
+Open Claude Code in your project directory and paste this:
+
+```
+Please set up the memory system from https://github.com/MasterGodzilla/Memory-System
+by following the MEMORY_SYSTEM_INTEGRATION.md guide
+```
+
+Claude Code will fetch the integration guide and handle everything automatically:
+- Read your existing CLAUDE.md to understand your project
+- Create the memory/ directory structure
+- Adapt templates with your project's terminology
+- Set up the complete three-tier system
 
 ## Why Use This System?
 
@@ -65,9 +72,9 @@ Step-by-step guide for integrating the memory system into your project. Read thi
 - **Structured exploration**: Navigate project knowledge systematically
 - **Reduced hallucination**: Reference concrete documentation instead of guessing
 
-## Customization
+## How It Works
 
-The templates use placeholders like `[Project]`, `[component]`, and `[module]` that you should replace with your project-specific terms. See [MEMORY_SYSTEM_INTEGRATION.md](MEMORY_SYSTEM_INTEGRATION.md) for detailed customization instructions.
+The templates use placeholders like `[Project]`, `[component]`, and `[module]`. Claude Code automatically detects your project's terminology from your existing `CLAUDE.md` and replaces these placeholders during integration.
 
 ## Origin
 

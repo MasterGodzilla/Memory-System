@@ -6,7 +6,7 @@
 
 ## Purpose
 
-This directory contains detailed design documents, implementation plans, and benchmarks that agents use as working memory across sessions.
+This directory contains detailed design documents and implementation plans that agents use as working memory across sessions.
 
 **For stable core knowledge**, see `/CLAUDE.md`.
 **For module-specific information**, see module READMEs (e.g., `src/[module]/README.md`).
@@ -25,10 +25,11 @@ Critical tests and testing documentation.
 - **`README.md`** - Testing philosophy and critical test overview
 - **`[test_doc].md`** - [Description of test documentation]
 
-### memory/benchmarks/
-Performance analysis and optimization plans.
+### memory/debugging/
+Bug investigation notes, root cause analysis, and debugging workflows.
 
-- **`[benchmark_doc].md`** - [Description of benchmark results and plans]
+- **`[bug_investigation].md`** - [Description of bug investigation and resolution]
+- **`[debugging_session].md`** - [Description of debugging session notes]
 
 ### memory/plans/
 Active implementation plans spanning multiple modules. Archive when completed.
@@ -38,13 +39,12 @@ Active implementation plans spanning multiple modules. Archive when completed.
 **Note**: [Any notes about exploratory/brainstorming files in this directory]
 
 ### memory/archive/
-Completed plans, superseded designs, and historical benchmark results.
+Completed plans and superseded designs.
 
 - `memory/archive/completed/` - Finished implementation plans
   - `[plan_name].md` - [Brief description] ([date], see [relevant docs])
 - `memory/archive/deprecated/` - Superseded design documents and implementation notes
   - `[doc_name].md` - [Brief description and why deprecated]
-- `memory/archive/old_benchmarks/` - Historical performance results
 
 ## Agent Documentation Protocol
 
@@ -53,7 +53,6 @@ Completed plans, superseded designs, and historical benchmark results.
 #### Situation 1: User gives clear direction
 **Examples:**
 - "Add this to memory/design/"
-- "Update the benchmark results"
 - "Document this in CLAUDE.md"
 - Working from existing plans in memory/plans/
 
@@ -76,7 +75,6 @@ Should I proceed?"
 #### Situation 3: Agent discovers something worth documenting
 **Examples:**
 - Found important design pattern while coding
-- Completed benchmark with interesting results
 - Realized a convention is being used consistently
 
 **Agent behavior:** Present plan with justification
@@ -112,9 +110,11 @@ Should I make this update?"
 - After making architectural decisions with project-wide implications
 - Documenting design rationale for future agents
 
-**Add memory/benchmarks/ document when:**
-- Recording performance analysis results
-- Documenting optimization plans and speedup results
+**Add memory/debugging/ document when:**
+- Investigating complex bugs that span multiple modules
+- Documenting root cause analysis for critical issues
+- Recording debugging workflows and techniques that worked
+- Preserving insights from debugging sessions for future reference
 
 **Add memory/plans/ document when:**
 - Planning refactoring spanning multiple modules
@@ -143,8 +143,8 @@ Should I make this update?"
 | "Detailed: [Specifications/formulas]" | memory/design/[topic].md | Cross-cutting system specifications |
 | "Why we chose [approach] over [alternative]" | memory/design/ | Design rationale, may evolve |
 | "[Component] class API and logic" | src/[module]/README.md | Module-specific architecture |
-| "Benchmark shows [results], plan to optimize" | memory/benchmarks/ | Active performance work |
 | "How to run [tool] with custom configs" | [component]/README.md | Module-specific usage |
+| "Investigation of bug affecting [components]" | memory/debugging/ | Cross-module debugging session |
 | "Plan to refactor [component]" | memory/plans/ | Active cross-module work |
 
 ## Maintenance
@@ -155,8 +155,7 @@ Should I make this update?"
 - Identify design decisions and rationale worth preserving
 - Present a proposal to:
   1. Extract design decisions to relevant `memory/design/` document
-  2. Move performance findings to `memory/benchmarks/` if applicable
-  3. Archive the plan itself to `memory/archive/completed/`
+  2. Archive the plan itself to `memory/archive/completed/`
 - Note: Plans often contain valuable insights beyond just implementation steps
 
 **When you notice inactive/abandoned plans:**
@@ -169,9 +168,10 @@ Should I make this update?"
 - Present a proposal to archive with deprecation note
 - Check if CLAUDE.md needs updates to reflect new approach
 
-**When benchmarks age:**
-- Consider if historical data is useful for trend analysis
-- Present a proposal to move to `memory/archive/old_benchmarks/` with date context
+**When a bug is resolved:**
+- Consider if the debugging insights are valuable for future reference
+- Present a proposal to document root cause analysis in memory/debugging/
+- Link related fixes and design decisions that emerged from debugging
 
 ### README Maintenance
 

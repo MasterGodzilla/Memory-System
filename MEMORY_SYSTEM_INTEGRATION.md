@@ -1,256 +1,179 @@
-# Memory System Integration Guide
+# Memory System Integration Plan
 
-This guide walks you through integrating the Claude Memory System into your project.
+This document is an execution plan for Claude Code agents. When a user references this repository and asks to integrate the memory system, follow these phases.
 
-## Overview
+## Important Guidelines
 
-The memory system consists of three documentation tiers that work together:
-1. **CLAUDE.md** - Core memory that all agents read (add memory section from template)
-2. **memory/** directory - Working memory with detailed docs (use template to create structure)
-3. **Module READMEs** - Module-specific documentation (already common practice)
+1. **Only modify markdown files and create directories** - Do not touch code files, configs, or any non-.md files
+2. **Always present plan before write operations** - Show user what you'll create/modify and get approval before writing any files. You don't need to reshow the plan that was already specified in the integration plan.
+3. **Respect existing documentation** - When appending to CLAUDE.md, preserve existing content; when merging with existing memory/, keep user's files
 
-## Prerequisites
+## Prerequisites Check
 
-Before integrating, ensure your project has:
-- A `CLAUDE.md` file (or similar agent instruction file)
-- A clear project structure with modules/components
-- Some form of agent-assisted development workflow
+Before starting, verify the project has a `CLAUDE.md` file with project context:
 
-## Step-by-Step Integration
+```bash
+ls CLAUDE.md
+```
 
-### Step 1: Understand Your Project's Terminology
+**If CLAUDE.md doesn't exist:**
+- Stop and tell the user: "This project needs a CLAUDE.md file first. Please open a new bash session, run a new Claude Code agent, and run `/init` to scan your codebase and create project context. After that, come back to this session and we can integrate the memory system."
 
-Identify your project-specific terms to replace template placeholders:
+**If CLAUDE.md exists:**
+- Continue to check for existing memory/ directory
 
-| Placeholder | Example Values | Your Project |
-|-------------|----------------|--------------|
-| `[Project]` | "GEC", "TaskFlow", "DataPipeline" | __________ |
-| `[component]` | "models", "kernels", "services" | __________ |
-| `[module]` | "router", "optimizer", "database" | __________ |
-| `[notation/formulas/specs]` | "MoE notation", "API specs" | __________ |
-| `[test_dir]` | "benchmark", "tests", "specs" | __________ |
+### Check for Existing memory/ Directory
 
-### Step 2: Create Memory Directory Structure
+```bash
+ls -d memory/
+```
 
-In your project root, create:
+**If memory/ directory already exists:**
+- Analyze the existing structure
+- Present a conflict resolution plan to the user with options (merge, rename, use different name, etc.)
+- Wait for user approval before proceeding
+
+**If memory/ does not exist:**
+- Proceed to Phase 1
+
+## Phase 1: Load Memory System Templates
+
+First, fetch and read the template files to understand what you'll be integrating.
+
+Fetch the memory system templates from the repository (https://github.com/MasterGodzilla/Memory-System):
+- Use WebFetch to read:
+  - `CLAUDE_MEMORY_TEMPLATE.md` from the repository
+  - `memory-readme.md` from the repository
+
+Read both files completely to understand the three-tier documentation system before proceeding to Phase 2.
+
+## Phase 2: Understand Existing Project
+
+Read the project's `CLAUDE.md` to understand the current project's structure, terminology, and conventions.
+
+## Phase 3: Present Integration Plan
+
+Show the user what you will create. Present this plan:
+
+```
+I will integrate the three-tier memory system into [ProjectName]:
+
+1. Create memory/ directory structure:
+   - memory/design/          (architectural decisions across modules)
+   - memory/plans/           (active multi-step implementation plans)
+   - memory/testing/         (test documentation and rationale)
+   - memory/debugging/       (bug investigations and root cause analysis)
+   - memory/archive/         (completed and deprecated documents)
+     - archive/completed/
+     - archive/deprecated/
+
+2. Append memory management section to CLAUDE.md:
+   - Three-tier system explanation
+   - "What Goes Where" decision table
+   - Agent documentation protocols
+   (Adapted with your project's terminology)
+
+3. Create memory/README.md:
+   - Directory structure guide
+   - Agent behavior protocols
+   - Content criteria for each tier
+   - Archive and maintenance guidelines
+   (Adapted with your project's terminology)
+
+Preview of adapted content:
+[Show a few key sections with actual project terminology filled in]
+
+Proceed with integration?
+```
+
+Wait for user approval before continuing.
+
+## Phase 4: Execute Integration
+
+After user approves:
+
+### 4.1 Create Directory Structure
+
+Execute these commands:
 
 ```bash
 mkdir -p memory/design
 mkdir -p memory/plans
-mkdir -p memory/benchmarks
 mkdir -p memory/testing
+mkdir -p memory/debugging
 mkdir -p memory/archive/completed
 mkdir -p memory/archive/deprecated
-mkdir -p memory/archive/old_benchmarks
 ```
 
-Optional subdirectories based on your needs:
-- `memory/archive/abandoned/` - For discontinued plans
-- `memory/experiments/` - For experimental designs
-- Any domain-specific categories
+### 4.2 Adapt and Append to CLAUDE.md
 
-### Step 3: Adapt CLAUDE_MEMORY_TEMPLATE.md
+Adapt `CLAUDE_MEMORY_TEMPLATE.md` with project-specific terminology and examples, then append to the project's `CLAUDE.md`.
 
-1. Open `CLAUDE_MEMORY_TEMPLATE.md` from this repository
-2. Replace all placeholders with your project-specific terms:
-   - `[Project]` → Your project name
-   - `[component]`, `[module]` → Your directory names
-   - `[notation/formulas/specs]` → What documentation you need
-   - `[test_dir]`, `[method]` → Your testing approach
-3. Customize the "What Goes Where?" table with concrete examples from your project
-4. Add this adapted section to your project's `CLAUDE.md` file
+### 4.3 Create memory/README.md
 
-**Example customization:**
-```markdown
-# Before (template)
-| High-level: What is [Project]? | CLAUDE.md | Core conceptual knowledge |
+Adapt `memory-readme.md` template with project-specific terms and write to `memory/README.md`.
 
-# After (adapted)
-| High-level: What is TaskFlow? | CLAUDE.md | Core conceptual knowledge |
+## Phase 5: Validate and Report
+
+Verify the integration:
+
+```bash
+ls -la memory/
+cat CLAUDE.md | grep -A 5 "Memory Management"
+ls memory/README.md
 ```
 
-### Step 4: Adapt MEMORY_README_TEMPLATE.md
+Report to user:
 
-1. Open `MEMORY_README_TEMPLATE.md` from this repository
-2. Replace all placeholders with your terms (same as Step 3)
-3. In the "Directory Structure" section, list your initial documents:
-   - If you have design docs, list them under `memory/design/`
-   - If you have active plans, list them under `memory/plans/`
-   - If you have benchmarks, list them under `memory/benchmarks/`
-4. Customize examples to match your project's actual use cases
-5. Save as `memory/README.md` in your project
+```
+✓ Memory system integrated successfully!
 
-### Step 5: Migrate Existing Documentation (Optional)
+Created:
+- memory/ directory with design/, plans/, testing/, debugging/, archive/
+- Memory management section in CLAUDE.md
+- memory/README.md with documentation protocols
 
-If you already have design docs, move them into the new structure:
+The three-tier system is now active:
+- Tier 1: CLAUDE.md (core knowledge, rarely updated)
+- Tier 2: memory/ (working memory, updated frequently)
+- Tier 3: Module READMEs (module-specific docs)
 
-**Design documents** → `memory/design/`
-- Architecture decisions
-- System specifications
-- Cross-module rationale
-
-**Plans and TODOs** → `memory/plans/`
-- Refactoring plans
-- Feature implementations
-- Multi-step initiatives
-
-**Performance analysis** → `memory/benchmarks/`
-- Benchmark results
-- Optimization findings
-- Speedup measurements
-
-**Test documentation** → `memory/testing/`
-- Critical test rationale
-- Bug discoveries
-- Test methodology
-
-**Old documents** → `memory/archive/`
-- Completed plans → `memory/archive/completed/`
-- Superseded designs → `memory/archive/deprecated/`
-- Historical benchmarks → `memory/archive/old_benchmarks/`
-
-### Step 6: Initialize With First Documents
-
-Create your first memory documents to establish patterns:
-
-**Example: memory/design/notation.md**
-```markdown
-# [Project] Notation System
-
-[Document your project's notation, terminology, or key concepts]
+To get started, try:
+- "Document this design decision in memory"
+- "Create a plan for [feature/refactoring]"
+- "What's currently in memory/design/?"
 ```
 
-**Example: memory/testing/README.md**
-```markdown
-# Testing Strategy
+## Phase 6: Discover and Migrate Existing Documentation
 
-## Critical Tests
-- `test_[name].py` - [Why this test is critical]
+Explore the codebase to find scattered .md files that might be memory/documentation created by previous Claude sessions.
 
-## Test Philosophy
-[Your testing approach]
+### Search for candidate files
+
+Look for .md files outside of standard locations (ignore node_modules/, .git/, etc.):
+- Design documents
+- Plan documents
+- Notes or decisions files
+- Any files that look like agent-generated memory
+
+### Present Migration Plan
+
+Show the user what you found and present a refactoring plan:
+
+```
+Found potential memory documents to migrate:
+
+[List files with brief description of content]
+
+Suggested migration:
+- {file1} → memory/design/ (architectural decision)
+- {file2} → memory/plans/ (implementation plan)
+- {file3} → memory/archive/completed/ (completed work)
+- {file4} → keep in place (module-specific, belongs in module README)
+
+Should I proceed with this migration?
 ```
 
-### Step 7: Train Your Agents
+Wait for user approval, then execute the migration if approved.
 
-Add a note to your project's `CLAUDE.md` that instructs agents:
 
-```markdown
-## Memory Management
-
-Whenever user asks you to do anything with memory, you should first check
-the CLAUDE.md and memory/README.md to understand how memory is organized.
-```
-
-This is already included in the CLAUDE_MEMORY_TEMPLATE.md, so if you completed Step 3, you're done!
-
-### Step 8: Start Using the System
-
-Begin using the three-tier system:
-- **New core conventions** → Add to CLAUDE.md (sparingly)
-- **Design decisions** → Document in memory/design/
-- **Active work** → Track in memory/plans/
-- **Module changes** → Update module READMEs
-
-## Customization Checklist
-
-Use this checklist to ensure you've adapted everything:
-
-- [ ] Created `memory/` directory structure
-- [ ] Replaced all `[Project]` placeholders with project name
-- [ ] Replaced all `[component]`/`[module]` placeholders with actual directory names
-- [ ] Replaced all `[notation/formulas/specs]` placeholders with relevant concepts
-- [ ] Customized "What Goes Where?" table with project-specific examples
-- [ ] Listed initial documents in memory/README.md directory structure
-- [ ] Added memory management section to CLAUDE.md
-- [ ] Migrated existing docs to appropriate memory/ subdirectories (if any)
-- [ ] Created at least one initial document in memory/design/ or memory/testing/
-- [ ] Updated examples in memory/README.md to match your project's domain
-
-## Validation
-
-After integration, test that agents understand the system:
-
-**Test 1: Ask about memory structure**
-```
-User: "Where should I document the API design decision?"
-Expected: Agent references memory/design/ and explains why
-```
-
-**Test 2: Implied documentation**
-```
-User: "Remember that we use approach X for feature Y"
-Expected: Agent offers to document in memory/design/ with content preview
-```
-
-**Test 3: Discovery**
-```
-User: [Agent completes a benchmark]
-Expected: Agent offers to update memory/benchmarks/ with results
-```
-
-## Common Customizations
-
-### For ML/AI Projects
-- Add `memory/experiments/` for experimental architectures
-- Add `memory/results/` for training run analysis
-- Include model architecture under `src/models/README.md`
-
-### For Backend Services
-- Add `memory/api/` for API design decisions
-- Add `memory/migrations/` for database migration rationale
-- Document service architecture in `memory/design/architecture.md`
-
-### For Frontend Projects
-- Add `memory/ux/` for UX design decisions
-- Add `memory/components/` for component library design
-- Document state management in `memory/design/state.md`
-
-### For Research Projects
-- Add `memory/papers/` for paper summaries and related work
-- Add `memory/hypotheses/` for experimental hypotheses
-- Document methodology in `memory/design/methodology.md`
-
-## Maintenance
-
-### Weekly
-- Review memory/plans/ for completed items → archive
-- Update memory/README.md if new docs were added
-
-### Monthly
-- Review memory/design/ for outdated content → archive deprecated designs
-- Review memory/archive/completed/ for extractable patterns → update design docs
-
-### Quarterly
-- Audit CLAUDE.md for content that could move to memory/
-- Review entire memory/ structure for reorganization opportunities
-
-## Troubleshooting
-
-**Problem**: Agent ignores memory system
-**Solution**: Ensure CLAUDE.md includes the memory management section and references memory/README.md
-
-**Problem**: Agent over-documents trivial details
-**Solution**: Strengthen the "Content Criteria" section in memory/README.md with project-specific examples
-
-**Problem**: Memory documents become stale
-**Solution**: Set up regular archive reviews and add dates to document headers
-
-**Problem**: Directory structure feels wrong
-**Solution**: Customize subdirectories based on your project's needs - the template is a starting point
-
-## Getting Help
-
-- Review the original templates for clarification on design decisions
-- Check the main README.md for system overview
-- Adapt the system to your needs - it's a template, not a rigid framework
-
-## Next Steps
-
-After integration:
-1. Create your first design document
-2. Start a plan for your next feature
-3. Document a critical test
-4. Let agents work with the system and refine based on their usage
-
-The system improves as you use it - don't aim for perfection on day one!
