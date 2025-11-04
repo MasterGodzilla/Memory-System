@@ -2,6 +2,21 @@
 
 A three-tier documentation system for organizing project knowledge across AI agent sessions.
 
+## 🚀 Quick Start (2 minutes)
+
+Open Claude Code in your project directory and paste this:
+
+```
+Please set up the memory system from https://github.com/MasterGodzilla/Memory-System
+by following the MEMORY_SYSTEM_INTEGRATION.md guide
+```
+
+Claude Code will fetch the integration guide and handle everything automatically:
+- Read your existing CLAUDE.md to understand your project
+- Create the memory/ directory structure
+- Adapt templates with your project's terminology
+- Set up the complete three-tier system
+
 ## Overview
 
 This repository provides templates for implementing a memory system that helps Claude agents maintain context and knowledge across multiple sessions. The system is particularly valuable for long-running projects where agents need to understand:
@@ -43,20 +58,7 @@ Template for creating `memory/README.md` in your project. This provides:
 ### [MEMORY_SYSTEM_INTEGRATION.md](MEMORY_SYSTEM_INTEGRATION.md)
 Integration plan for Claude Code agents to execute. This is what Claude Code follows when you ask it to set up the memory system.
 
-## 🚀 Quick Start (2 minutes)
 
-Open Claude Code in your project directory and paste this:
-
-```
-Please set up the memory system from https://github.com/MasterGodzilla/Memory-System
-by following the MEMORY_SYSTEM_INTEGRATION.md guide
-```
-
-Claude Code will fetch the integration guide and handle everything automatically:
-- Read your existing CLAUDE.md to understand your project
-- Create the memory/ directory structure
-- Adapt templates with your project's terminology
-- Set up the complete three-tier system
 
 ## Why Use This System?
 
@@ -84,6 +86,6 @@ This system was extracted from a production ML research project where it success
 - Design decision tracking
 - Bug discovery and fix documentation
 
-## License
-
-MIT License - feel free to adapt this system to your needs.
+## Notes
+- This system is still in early development. Please report any issues or feedback to the repository.
+- We only tested this system with Claude Code using Sonnet 4.5. It may not work with other models.

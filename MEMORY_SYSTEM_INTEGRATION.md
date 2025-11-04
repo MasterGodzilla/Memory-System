@@ -10,7 +10,26 @@ This document is an execution plan for Claude Code agents. When a user reference
 
 ## Prerequisites Check
 
-Before starting, verify the project has a `CLAUDE.md` file with project context:
+If you are not Claude 4.5 Sonnet, stop and tell the user: "This system has only been tested with Claude 4.5 Sonnet. Please be careful with other models."
+
+## Phase 1: Load Memory System Templates
+
+First, fetch and read the template files to understand what you'll be integrating.
+
+Fetch the memory system templates from the repository (https://github.com/MasterGodzilla/Memory-System):
+- Use WebFetch to read:
+  - `CLAUDE_MEMORY_TEMPLATE.md` from the repository
+  - `memory-readme.md` from the repository
+
+Read both files completely to understand the three-tier documentation system before proceeding to Phase 2.
+
+## Phase 2: Understand Existing Project
+
+Read the project's `CLAUDE.md` to understand the current project's structure, terminology, and conventions.
+
+### Check for Existing CLAUDE.md File
+
+Verify the project has a `CLAUDE.md` file with project context:
 
 ```bash
 ls CLAUDE.md
@@ -34,22 +53,8 @@ ls -d memory/
 - Wait for user approval before proceeding
 
 **If memory/ does not exist:**
-- Proceed to Phase 1
+- Proceed to Phase 3
 
-## Phase 1: Load Memory System Templates
-
-First, fetch and read the template files to understand what you'll be integrating.
-
-Fetch the memory system templates from the repository (https://github.com/MasterGodzilla/Memory-System):
-- Use WebFetch to read:
-  - `CLAUDE_MEMORY_TEMPLATE.md` from the repository
-  - `memory-readme.md` from the repository
-
-Read both files completely to understand the three-tier documentation system before proceeding to Phase 2.
-
-## Phase 2: Understand Existing Project
-
-Read the project's `CLAUDE.md` to understand the current project's structure, terminology, and conventions.
 
 ## Phase 3: Present Integration Plan
 
@@ -111,7 +116,7 @@ Adapt `CLAUDE_MEMORY_TEMPLATE.md` with project-specific terminology and examples
 
 ### 4.3 Create memory/README.md
 
-Rename `memory-readme.md` to `memory/README.md` and adapt it with project-specific terms.
+Adapt `memory-readme.md` template with project-specific terms and write to `memory/README.md`.
 
 ## Phase 5: Validate and Report
 
