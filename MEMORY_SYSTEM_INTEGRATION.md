@@ -107,11 +107,11 @@ mkdir -p memory/archive/deprecated
 
 ### 4.2 Adapt and Append to CLAUDE.md
 
-Adapt `CLAUDE_MEMORY_TEMPLATE.md` with project-specific terminology and examples, then append to the project's `CLAUDE.md`.
+Adapt `CLAUDE_MEMORY_TEMPLATE.md` with project-specific terminology and examples, then append to the end of the project's `CLAUDE.md`.
 
 ### 4.3 Create memory/README.md
 
-Adapt `memory-readme.md` template with project-specific terms and write to `memory/README.md`.
+Rename `memory-readme.md` to `memory/README.md` and adapt it with project-specific terms.
 
 ## Phase 5: Validate and Report
 
@@ -143,6 +143,8 @@ To get started, try:
 - "Create a plan for [feature/refactoring]"
 - "What's currently in memory/design/?"
 ```
+
+Ask user if they want to migrate existing scattered documentation into the memory system. If yes, proceed to Phase 6. If no, integration is complete.
 
 ## Phase 6: Discover and Migrate Existing Documentation
 
@@ -176,4 +178,4 @@ Should I proceed with this migration?
 
 Wait for user approval, then execute the migration if approved.
 
-
+After the migration, report to the user the final state of the memory system.

@@ -1,12 +1,12 @@
 # Memory Management Section
 
-> **Note**: This is a template to add to your project's `CLAUDE.md` file. 
+> **Note**: This is a template to append to your project's `CLAUDE.md` file. 
 
 ---
 
 ## Memory Management
 
-Whenever user asks you to do anything with memory, you should first check the CLAUDE.md and memory/README.md to understand how memory is organized.
+Whenever user asks you to do anything with memory (e.g., "Remember this", "Save the plan", "Document the bug"), you should first check the CLAUDE.md and memory/README.md to understand how memory is organized.
 
 ### Three-Tier System
 
