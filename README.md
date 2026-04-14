@@ -4,15 +4,15 @@ A three-tier documentation system for organizing project knowledge across AI age
 
 ## 🚀 Quick Start (2 minutes)
 
-Open Claude Code in your project directory and paste this:
+Open Claude Code or Codex in your project directory and paste this:
 
 ```
 Please set up the memory system from https://github.com/MasterGodzilla/Memory-System
 by following the MEMORY_SYSTEM_INTEGRATION.md guide
 ```
 
-Claude Code will fetch the integration guide and handle everything automatically:
-- Read your existing CLAUDE.md to understand your project
+Your agent will fetch the integration guide and handle everything automatically:
+- Read your existing `CLAUDE.md` or `AGENTS.md` to understand your project
 - Create the memory/ directory structure
 - Adapt templates with your project's terminology
 - Set up the complete three-tier system
@@ -20,7 +20,7 @@ Claude Code will fetch the integration guide and handle everything automatically
 
 ## Overview
 
-This repository provides templates for implementing a memory system that helps Claude agents maintain context and knowledge across multiple sessions. The system is particularly valuable for long-running projects where agents need to understand:
+This repository provides templates for implementing a memory system that helps coding agents maintain context and knowledge across multiple sessions. The system is particularly valuable for long-running projects where agents need to understand:
 
 - Core project concepts and conventions
 - Design decisions and their rationale
@@ -29,7 +29,7 @@ This repository provides templates for implementing a memory system that helps C
 
 ## The Three-Tier System
 
-**Tier 1: CLAUDE.md (Agent Core Memory)**
+**Tier 1: `CLAUDE.md` or `AGENTS.md` (Agent Core Memory)**
 - Stable, fundamental knowledge ALL future agents need
 - Notation, conventions, core implementation principles
 - Must remain concise; updated rarely
@@ -43,7 +43,6 @@ This repository provides templates for implementing a memory system that helps C
 memory/
 ├── design/           # Architectural decisions
 ├── plans/            # Active implementation plans
-├── testing/          # Test documentation and rationale
 ├── debugging/        # Bug investigations
 └── archive/
     ├── completed/    # Finished plans
@@ -58,7 +57,7 @@ memory/
 ## Files in This Repository
 
 ### [CLAUDE_MEMORY_TEMPLATE.md](CLAUDE_MEMORY_TEMPLATE.md)
-Template for the memory management section to add to your project's `CLAUDE.md` file. This establishes the three-tier system, explains what content belongs where, and defines update protocols.
+Template for the memory management section to add to your project's core memory file: `CLAUDE.md` for Claude Code or `AGENTS.md` for Codex. This establishes the three-tier system, explains what content belongs where, and defines update protocols.
 
 ### [memory-readme.md](memory-readme.md)
 Template for creating `memory/README.md` in your project. This provides:
@@ -68,7 +67,7 @@ Template for creating `memory/README.md` in your project. This provides:
 - Maintenance and archiving guidelines
 
 ### [MEMORY_SYSTEM_INTEGRATION.md](MEMORY_SYSTEM_INTEGRATION.md)
-Integration plan for Claude Code agents to execute. This is what Claude Code follows when you ask it to set up the memory system.
+Integration plan for Claude Code or Codex to execute when you ask it to set up the memory system.
 
 
 
@@ -88,7 +87,7 @@ Integration plan for Claude Code agents to execute. This is what Claude Code fol
 
 ## How It Works
 
-Claude Code reads your existing `CLAUDE.md` to understand your project's structure and terminology, then automatically adapts the memory system templates to match your project's conventions and organization.
+Claude Code reads your existing `CLAUDE.md`, while Codex reads your existing `AGENTS.md`, to understand your project's structure and terminology. The agent then adapts the memory system templates to match your project's conventions and organization.
 
 ## Origin
 
@@ -100,4 +99,3 @@ This system was extracted from a ML research project where it successfully manag
 
 ## Notes
 - This system is still in early development. Please report any issues or feedback to the repository.
-- We only tested this system with Claude Code using Sonnet 4.5. It may not work with other models.

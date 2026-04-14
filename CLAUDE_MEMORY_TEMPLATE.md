@@ -1,20 +1,20 @@
 # Memory Management Section
 
-> **Note**: This is a template to append to your project's `CLAUDE.md` file. 
+> **Note**: This is a template to append to your project's core memory file: `CLAUDE.md` for Claude Code or `AGENTS.md` for Codex.
 
 ---
 
 ## Memory Management
 
-Whenever user asks you to do anything with memory (e.g., "Remember this", "Save the plan", "Document the bug"), you should first check the CLAUDE.md and memory/README.md to understand how memory is organized.
+Whenever user asks you to do anything with memory (e.g., "Remember this", "Save the plan", "Document the bug"), you should first check the core memory file (`CLAUDE.md` for Claude Code or `AGENTS.md` for Codex) and `memory/README.md` to understand how memory is organized.
 
 ### Three-Tier System
 
-**CLAUDE.md (Agent Core Memory)**
+**Core Memory File (`CLAUDE.md` or `AGENTS.md`)**
 - Stable, fundamental knowledge ALL future agents need
 - Notation, conventions, core implementation principles
 - Must remain concise; updated rarely
-- Location: `/CLAUDE.md`
+- Location: `/CLAUDE.md` (Claude Code) or `/AGENTS.md` (Codex)
 
 **memory/ (Agent Working Memory)**
 - Detailed design docs, implementation plans, and debugging investigations
@@ -32,7 +32,7 @@ Whenever user asks you to do anything with memory (e.g., "Remember this", "Save 
 
 | Information Type | Location | Why |
 |-----------------|----------|-----|
-| High-level: What is this project? | CLAUDE.md | Core conceptual knowledge |
+| High-level: What is this project? | `CLAUDE.md` or `AGENTS.md` | Core conceptual knowledge |
 | Detailed notation/formulas/specifications | `memory/design/{topic}.md` | Cross-cutting system specifications |
 | Component implementation details | `src/{component}/README.md` | Module-specific architecture |
 | Design decision rationale | `memory/design/` | Cross-module design decision |
@@ -40,7 +40,7 @@ Whenever user asks you to do anything with memory (e.g., "Remember this", "Save 
 | How to run tools/tests | `{component}/README.md` | Module-specific usage |
 | Component performance tests | Test directories | Component-specific testing |
 | Integration/system tests | `test/` | System-level testing |
-| Critical test documentation | `memory/testing/` | Test rationale and bug history |
+| Critical test documentation | `test/` or module README | Keep test docs close to the relevant code |
 | Bug investigation and root cause analysis | `memory/debugging/` | Cross-module debugging sessions |
 | Refactoring plans | `memory/plans/` | Active cross-module work |
 | Component API | `src/{component}/README.md` | Module-specific API |
@@ -52,7 +52,7 @@ Whenever user asks you to do anything with memory (e.g., "Remember this", "Save 
 - Implied documentation → Present plan with content preview
 - Agent discoveries → Present plan with justification
 
-**CLAUDE.md** - Highest content bar:
+**Core memory file** - Highest content bar:
 - Only for knowledge ALL future agents must know
 - Stable conventions and permanent principles
 - Must be concise and fundamental

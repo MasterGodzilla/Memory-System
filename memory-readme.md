@@ -8,7 +8,7 @@
 
 This directory contains detailed design documents and implementation plans that agents use as working memory across sessions.
 
-**For stable core knowledge**, see `/CLAUDE.md`.
+**For stable core knowledge**, see `/CLAUDE.md` if you are using Claude Code, or `/AGENTS.md` if you are using Codex.
 **For module-specific information**, see module READMEs (e.g., `src/[module]/README.md`).
 
 ## Directory Structure
@@ -18,12 +18,6 @@ Design documents and architectural decisions affecting multiple modules.
 
 - **`[doc_name].md`** - [Description of what this design document covers]
 - **`[doc_name].md`** - [Description of what this design document covers]
-
-### memory/testing/
-Critical tests and testing documentation.
-
-- **`README.md`** - Testing philosophy and critical test overview
-- **`[test_doc].md`** - [Description of test documentation]
 
 ### memory/debugging/
 Bug investigation notes, root cause analysis, and debugging workflows.
@@ -53,7 +47,7 @@ Completed plans and superseded designs.
 #### Situation 1: User gives clear direction
 **Examples:**
 - "Add this to memory/design/"
-- "Document this in CLAUDE.md"
+- "Document this in the core memory file"
 - Working from existing plans in memory/plans/
 
 **Agent behavior:** Execute directly
@@ -90,7 +84,7 @@ Should I make this update?"
 
 **Note:** These are content standards, not permission levels. The behavioral protocol above applies regardless of destination.
 
-### CLAUDE.md (Highest content bar)
+### Core Memory File (`CLAUDE.md` or `AGENTS.md`) (Highest content bar)
 
 **Only add when:**
 - Information must be known by ALL future agents
@@ -139,7 +133,7 @@ Should I make this update?"
 
 | Information | Correct Location | Reason |
 |-------------|------------------|--------|
-| "High-level: What is [Project]?" | CLAUDE.md | Core conceptual knowledge |
+| "High-level: What is [Project]?" | `CLAUDE.md` or `AGENTS.md` | Core conceptual knowledge |
 | "Detailed: [Specifications/formulas]" | memory/design/[topic].md | Cross-cutting system specifications |
 | "Why we chose [approach] over [alternative]" | memory/design/ | Design rationale, may evolve |
 | "[Component] class API and logic" | src/[module]/README.md | Module-specific architecture |
@@ -166,7 +160,7 @@ Should I make this update?"
 **When a design becomes outdated:**
 - Identify what superseded it and document the evolution
 - Present a proposal to archive with deprecation note
-- Check if CLAUDE.md needs updates to reflect new approach
+- Check if the core memory file needs updates to reflect the new approach
 
 **When a bug is resolved:**
 - Consider if the debugging insights are valuable for future reference
